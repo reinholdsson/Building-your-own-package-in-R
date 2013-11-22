@@ -28,17 +28,17 @@ hitheme: github
    }
 </style>
 
-## Contents
+## Building your own package in R
 
-- Why?
-- Structure
-- Documentation
-- Build packages using RStudio
-- Do it!
+- Why!?
+- Package structure
+- Package documentation
+- Build packages with RStudio
+- Try it out!
 
 ---
 
-## Why?
+## Why!?
 
 It's a great way to distribute and make code **re-usable**, not only for you, but also for others.
 
@@ -53,17 +53,47 @@ It's a great way to distribute and make code **re-usable**, not only for you, bu
 
 ---
 
-## Structure
+## Package structure
 
-`package.skeleton()` generates the following:
+    R/
 
-```
-man/
-R/
-DESCRIPTION
-NAMESPACE
-Read-and-delete-me
-```
+directory with all R code
+
+    DESCRIPTION
+    
+description file
+
+    man/
+    
+directory with package documentation generated with `roxygen2`
+
+    NAMESPACE
+    
+defines what functions are available to others to use, generated with `roxygen2`
+
+---
+
+### Description file
+
+
+---
+
+## Documentation
+
+---
+
+## Build package
+
+<iframe src = 'http://ltcstats.perriard.se/rstudio/' height='600px'></iframe>
+
+
+---
+
+## Build package
+
+One could also use `package.skeleton()` or `devtools::create()` to generate the initial package structure.
+
+In addition, for writing tests look at package `testthat` and for work flow automatization use `makefiles` (not a package).
 
 ---
 
