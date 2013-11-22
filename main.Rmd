@@ -1,0 +1,76 @@
+---
+title: Building your own package in R
+author: Thomas Reinholdsson
+job: Swedish Pensions Agency
+widgets: [bootstrap, quiz]
+framework: io2012
+mode: selfcontained
+url: {lib: libraries}
+hitheme: github
+---
+
+<style>
+   slide {
+      background-color: white;
+   }
+   body {
+      background-color: white;
+   }
+   .title-slide {
+      background-color: white;
+   }
+   article p {
+      margin-bottom: 10px;
+      margin-top: 10px;
+   }
+   pre code {
+      background: #f8f8ff;
+   }
+</style>
+
+## Contents
+
+- Why?
+- Structure
+- Documentation
+- Build packages using RStudio
+- Do it!
+
+---
+
+## Why?
+
+It's a great way to distribute and make code **re-usable**, not only for you, but also for others.
+
+### Publish and install
+
+- The Comprehensive R Archive Network (CRAN)
+  - `install.packages()`
+- GitHub
+  - `devtools::install_github()`
+- Bitbucket
+  - `devtools::install_bitbucket()`
+
+---
+
+## Structure
+
+`package.skeleton()` generates the following:
+
+```
+man/
+R/
+DESCRIPTION
+NAMESPACE
+Read-and-delete-me
+```
+
+---
+
+## See also
+
+- [Package basics](http://adv-r.had.co.nz/Package-basics.html) by Hadley Wickham
+- [Developing Packages with RStudio](http://www.rstudio.com/ide/docs/packages/overview)
+- [Creating R Packages: A Tutorial](http://portal.stats.ox.ac.uk/userdata/ruth/APTS2012/Rcourse10.pdf) by Friedrich Leisch
+
+- `slidify` by Ramnath Vaidyanathan
