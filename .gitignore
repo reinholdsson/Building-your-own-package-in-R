@@ -1,7 +1,6 @@
 # History files
 *.Rhistory
 *.md
-*.html
 libraries/
 
 # Example code in package build process

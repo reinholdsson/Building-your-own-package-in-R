@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Building your own package in R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Building your own package in R">
+  <meta name="author" content="Thomas Reinholdsson">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/github.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Building your own package in R</h1>
+    <h2></h2>
+    <p>Thomas Reinholdsson<br/>Swedish Pensions Agency</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+   slide {
+      background-color: white;
+   }
+   body {
+      background-color: white;
+   }
+   .title-slide {
+      background-color: white;
+   }
+   article p {
+      margin-bottom: 10px;
+      margin-top: 10px;
+   }
+   pre code {
+      background: #f8f8ff;
+   }
+</style>
+
+<h2>Building your own package in R</h2>
+
+<ul>
+<li>Why!?</li>
+<li>Package structure</li>
+<li>Package documentation</li>
+<li>Build packages with RStudio</li>
+<li>(Workshop)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Why!?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>It&#39;s a great way to distribute and make code <strong>re-usable</strong>, not only for you, but also for others.</p>
+
+<h3>Where to publish?</h3>
+
+<ul>
+<li>The Comprehensive R Archive Network (CRAN)
+
+<ul>
+<li><code>install.packages(&quot;Package&quot;)</code></li>
+</ul></li>
+<li>R-Forge
+
+<ul>
+<li><code>install.packages(&quot;Package&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code></li>
+</ul></li>
+<li>GitHub
+
+<ul>
+<li><code>devtools::install_github(&quot;Package&quot;, &quot;User&quot;)</code></li>
+</ul></li>
+<li>Bitbucket
+
+<ul>
+<li><code>devtools::install_bitbucket(&quot;Package&quot;, &quot;User&quot;)</code></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Package structure</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="img/structure.png" alt=""></p>
+
+<p>The example is taken from the <code>Coldbir</code> package.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h3>Essential components</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>R/
+</code></pre>
+
+<p>directory with all R code</p>
+
+<pre><code>DESCRIPTION
+</code></pre>
+
+<p>description file</p>
+
+<pre><code>man/
+</code></pre>
+
+<p>directory with package documentation generated with <code>roxygen2</code></p>
+
+<pre><code>NAMESPACE
+</code></pre>
+
+<p>defines what functions are available to others to use, generated with <code>roxygen2</code></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h3><code>DESCRIPTION</code> file</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="img/desc.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Documentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Use <code>roxygen2</code> to automatically generate <code>.Rd</code> files in the <code>man</code> directory</p>
+
+<p><img src="img/code.png" alt=""></p>
+
+<p>The documentation is then available by calling the help function; <code>?to_char</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Build package</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src = 'http://ltcstats.perriard.se/rstudio/' height='600px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Build package</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One could also use <code>package.skeleton()</code> or <code>devtools::create()</code> to generate the initial package structure.</p>
+
+<p>In addition, for writing tests look at package <code>testthat</code> and for work flow automatization use <code>makefiles</code> (not a package).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>See also</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Useful links</h3>
+
+<ul>
+<li><a href="http://portal.stats.ox.ac.uk/userdata/ruth/APTS2012/Rcourse10.pdf">Creating R Packages: A Tutorial, by Friedrich Leisch</a></li>
+<li><a href="http://www.rstudio.com/ide/docs/packages/overview">Developing Packages with RStudio</a></li>
+<li><a href="http://adv-r.had.co.nz/Package-basics.html">Package basics, by Hadley Wickham</a></li>
+</ul>
+
+<h3>Examples</h3>
+
+<ul>
+<li><a href="https://github.com/SwedishPensionsAgency/Coldbir"><code>Coldbir</code></a></li>
+<li><a href="https://github.com/ramnathv/rCharts"><code>slidify</code></a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Thanks, please try it out!</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Why!?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Package structure'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Essential components'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='<code>DESCRIPTION</code> file'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Documentation'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Build package'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Build package'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='See also'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Thanks, please try it out!'>
+         10
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
