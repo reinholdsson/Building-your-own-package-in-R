@@ -34,7 +34,7 @@ hitheme: github
 - Package structure
 - Package documentation
 - Build packages with RStudio
-- Try it out!
+- (Workshop)
 
 ---
 
@@ -42,18 +42,28 @@ hitheme: github
 
 It's a great way to distribute and make code **re-usable**, not only for you, but also for others.
 
-### Publish and install
+### Where to publish?
 
 - The Comprehensive R Archive Network (CRAN)
-  - `install.packages()`
+  - `install.packages("Package")`
+- R-Forge
+  - `install.packages("Package", repos="http://R-Forge.R-project.org")`
 - GitHub
-  - `devtools::install_github()`
+  - `devtools::install_github("Package", "User")`
 - Bitbucket
-  - `devtools::install_bitbucket()`
+  - `devtools::install_bitbucket("Package", "User")`
 
 ---
 
 ## Package structure
+
+![](img/structure.png)
+
+The example is taken from the `Coldbir` package.
+
+---
+
+### Essential components
 
     R/
 
@@ -73,12 +83,19 @@ defines what functions are available to others to use, generated with `roxygen2`
 
 ---
 
-### Description file
+### `DESCRIPTION` file
 
+![](img/desc.png)
 
 ---
 
 ## Documentation
+
+Use `roxygen2` to automatically generate `.Rd` files in the `man` directory
+
+![](img/code.png)
+
+The documentation is then available by calling the help function; `?to_char`.
 
 ---
 
@@ -99,8 +116,16 @@ In addition, for writing tests look at package `testthat` and for work flow auto
 
 ## See also
 
-- [Package basics](http://adv-r.had.co.nz/Package-basics.html) by Hadley Wickham
-- [Developing Packages with RStudio](http://www.rstudio.com/ide/docs/packages/overview)
-- [Creating R Packages: A Tutorial](http://portal.stats.ox.ac.uk/userdata/ruth/APTS2012/Rcourse10.pdf) by Friedrich Leisch
+### Useful links
 
-- `slidify` by Ramnath Vaidyanathan
+- [Creating R Packages: A Tutorial, by Friedrich Leisch](http://portal.stats.ox.ac.uk/userdata/ruth/APTS2012/Rcourse10.pdf)
+- [Developing Packages with RStudio](http://www.rstudio.com/ide/docs/packages/overview)
+- [Package basics, by Hadley Wickham](http://adv-r.had.co.nz/Package-basics.html)
+
+### Examples
+- [`Coldbir`](https://github.com/SwedishPensionsAgency/Coldbir)
+- [`slidify`](https://github.com/ramnathv/rCharts)
+
+---
+
+## Thanks, please try it out!
